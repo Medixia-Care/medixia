@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medixia | ميديكسيا للتمريض المنزلي والتوعية الصحية</title>
+    <title>Medixia | ميديكسيا للتمريض المنزلي والرعاية الطبية</title>
     
+    <meta name="description" content="ميديكسيا تقدم رعاية طبية منزلية احترافية، تمريض 24 ساعة، غسيل كلى منزلي، ورعاية كبار السن تحت إشراف طبي كامل. نصل إليك أينما كنت.">
+    <meta name="keywords" content="تمريض منزلي، غسيل كلى بالمنزل، رعاية مسنين، أجهزة طبية، طنطا، 6 أكتوبر، ميديكسيا">
+    
+    <meta property="og:title" content="Medixia Health Care | رعاية طبية احترافية في منزلك">
+    <meta property="og:description" content="نصل إليك أينما كنت بتمريض محترف وأحدث الأجهزة الطبية.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://moshalaby1995-coder.github.io/medixia/">
+
     <link rel="icon" type="image/png" href="favicon.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
@@ -20,63 +29,67 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Tajawal', sans-serif; line-height: 1.8; color: #333; background: var(--white); scroll-behavior: smooth; }
+        body { font-family: 'Tajawal', sans-serif; line-height: 1.8; color: #333; background: var(--white); scroll-behavior: smooth; overflow-x: hidden; }
 
         header {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.95);
             padding: 12px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        .logo img { height: 75px; }
+        .logo img { height: 75px; transition: 0.3s; }
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-right: 25px; }
-        nav ul li a { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
+        nav ul li a { text-decoration: none; color: var(--primary); font-weight: bold; transition: 0.3s; }
         nav ul li a:hover { color: var(--secondary); }
 
         .hero {
-            height: 75vh;
+            height: 80vh;
             background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.4)), 
                         url('background.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
+            display: flex; align-items: center; padding: 0 8%;
         }
-        .hero-content h1 { font-size: 3.2rem; color: var(--primary); margin-bottom: 20px; line-height: 1.2; }
-        .hero-content p { font-size: 1.4rem; color: #444; margin-bottom: 30px; border-right: 5px solid var(--secondary); padding-right: 20px; font-weight: 500; }
-        .cta-btn { background: var(--primary); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; box-shadow: 0 10px 20px rgba(26,60,125,0.2); transition: 0.3s; }
+        .hero-content h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; line-height: 1.2; }
+        .hero-content p { font-size: 1.5rem; color: #444; margin-bottom: 30px; border-right: 5px solid var(--secondary); padding-right: 20px; font-weight: 500; }
 
-        section { padding: 90px 8%; }
+        section { padding: 100px 8%; }
+        .bg-gray { background: var(--bg-gray); }
         .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { color: var(--primary); font-size: 2.5rem; }
-        
+        .section-title h2 { color: var(--primary); font-size: 2.8rem; margin-bottom: 15px; }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        
-        .services-bg { background: var(--bg-gray); }
-        .card { background: var(--white); padding: 40px 25px; border-radius: 20px; text-align: center; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
-        .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--secondary); }
-        .card i { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; }
-        .card h3 { color: var(--primary); font-size: 1.3rem; }
 
-        .blog-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; cursor: pointer; }
-        .blog-card:hover { border-color: var(--secondary); transform: scale(1.02); }
-        .blog-card h3 { color: var(--primary); margin-bottom: 12px; font-size: 1.3rem; text-decoration: underline; }
-        .read-more { color: var(--secondary); font-weight: bold; font-size: 0.9rem; }
+        .card { background: var(--white); padding: 40px 25px; border-radius: 25px; text-align: center; transition: 0.4s; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border: 1px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .card i { font-size: 3.5rem; color: var(--secondary); margin-bottom: 25px; }
 
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { background: white; padding: 40px; border-radius: 20px; max-width: 800px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
-        .close-modal { position: absolute; top: 20px; left: 20px; font-size: 30px; cursor: pointer; }
+        .blog-card { background: var(--white); border-radius: 20px; padding: 30px; border: 1px solid #eee; transition: 0.3s; cursor: pointer; position: relative; }
+        .blog-card:hover { border-color: var(--secondary); background: var(--bg-gray); }
+        .blog-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; }
 
-        footer { background: var(--primary); color: white; padding: 60px 8% 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background: var(--whatsapp); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 1500; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-decoration: none; }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); }
+        .modal-content { background: white; padding: 50px; border-radius: 30px; max-width: 850px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
+        .close-modal { position: absolute; top: 25px; left: 25px; font-size: 35px; cursor: pointer; color: #666; }
 
-        @media (max-width: 768px) { header { flex-direction: column; } nav ul { margin-top: 15px; } .hero-content h1 { font-size: 2.3rem; } }
+        footer { background: var(--primary); color: white; padding: 80px 8% 30px; }
+        .whatsapp-float { position: fixed; bottom: 35px; left: 35px; background: var(--whatsapp); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 40px; z-index: 1500; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+
+        /* Schema Markup for Google */
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          "name": "Medixia Health Care",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tanta & 6th of October City",
+            "addressCountry": "EG"
+          },
+          "telephone": "01274021912"
+        }
+        </script>
     </style>
 </head>
 <body>
@@ -84,7 +97,7 @@
     <a href="https://wa.me/201274021912" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <header>
-        <div class="logo"><img src="logo.png" alt="Medixia"></div>
+        <div class="logo"><img src="logo.png" alt="Medixia" loading="lazy"></div>
         <nav>
             <ul>
                 <li><a href="#home">الرئيسية</a></li>
@@ -96,101 +109,68 @@
     </header>
 
     <section class="hero" id="home">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-left">
             <h1>رعاية طبية منزلية.. <br>نصل إليك أينما كنت</h1>
-            <p>ميديكسيا تقدم رعاية احترافية في قلب منزلك، بأيدي نخبة من الخبراء وتحت إشراف طبي متكامل لضمان أمانكم.</p>
-            <a href="tel:01274021912" class="cta-btn">اطلب زيارة منزلية الآن</a>
+            <p>ميديكسيا ليست مجرد تمريض، نحن شريكك الصحي الذي يوفر الأمان والخبرة العلمية في منزلك وتحت إشراف طبي كامل.</p>
+            <a href="tel:01274021912" style="background:var(--primary); color:white; padding:18px 45px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">اطلب الزيارة الآن</a>
         </div>
     </section>
 
-    <section class="services-bg" id="services">
-        <div class="section-title"><h2>خدماتنا الطبية الكاملة</h2></div>
+    <section class="bg-gray" id="services">
+        <div class="section-title" data-aos="fade-up"><h2>خدماتنا الطبية المتكاملة</h2></div>
         <div class="grid">
-            <div class="card"><i class="fas fa-user-nurse"></i><h3>رعاية تمريضية 24 ساعة</h3></div>
-            <div class="card"><i class="fas fa-users"></i><h3>رعاية كبار السن والحالات المزمنة</h3></div>
-            <div class="card"><i class="fas fa-procedures"></i><h3>العناية بعد العمليات الجراحية</h3></div>
-            <div class="card"><i class="fas fa-syringe"></i><h3>تركيب وتغيير الكانولا والقسطرة</h3></div>
-            <div class="card"><i class="fas fa-vial"></i><h3>إعطاء الحقن وتركيب المحاليل</h3></div>
-            <div class="card"><i class="fas fa-heartbeat"></i><h3>قياس العلامات الحيوية والمتابعة</h3></div>
-            <div class="card"><i class="fas fa-box-medical"></i><h3>بيع وإيجار الأجهزة والمستلزمات</h3></div>
-            <div class="card"><i class="fas fa-kidney"></i><h3>غسيل كلى بالمنزل</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-user-nurse"></i><h3>رعاية تمريضية 24 ساعة</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-users"></i><h3>رعاية كبار السن</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-procedures"></i><h3>العناية بعد العمليات</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-syringe"></i><h3>كانولا وقسطرة ومحاليل</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-vial"></i><h3>إعطاء الحقن بالمنزل</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-heartbeat"></i><h3>متابعة العلامات الحيوية</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="700"><i class="fas fa-box-medical"></i><h3>بيع وإيجار الأجهزة</h3></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="800"><i class="fas fa-kidney"></i><h3>غسيل كلى منزلي</h3></div>
         </div>
     </section>
 
     <section id="awareness">
-        <div class="section-title"><h2>موسوعة ميديكسيا التوعوية</h2><p>اضغط على العنوان لقراءة المقال كاملاً</p></div>
+        <div class="section-title" data-aos="fade-up"><h2>موسوعة ميديكسيا التوعوية</h2><p>معلومات طبية تهمك لرعاية أفضل لمن تحب</p></div>
         <div class="grid">
-            <div class="blog-card" onclick="openPost('post1')">
-                <h3>1. الوقاية من قرح الفراش</h3>
-                <p>تعرف على طرق التقليب الصحيحة وأهمية المرتبة الهوائية...</p>
-                <span class="read-more">اقرأ المزيد ←</span>
-            </div>
-            <div class="blog-card" onclick="openPost('post2')">
-                <h3>2. غسيل الكلى المنزلي</h3>
-                <p>كيف تجهز منزلك لجلسة غسيل كلوي آمنة ومعقمة...</p>
-                <span class="read-more">اقرأ المزيد ←</span>
-            </div>
-            <div class="blog-card" onclick="openPost('post3')">
-                <h3>3. التعامل مع مريض السكر</h3>
-                <p>الفرق بين غيبوبة الهبوط والارتفاع وكيفية التصرف السريع...</p>
-                <span class="read-more">اقرأ المزيد ←</span>
-            </div>
-            <div class="blog-card" onclick="openPost('post4')">
-                <h3>4. العناية بالجروح الجراحية</h3>
-                <p>علامات التهاب الجروح وكيفية الغيار عليها بشكل معقم...</p>
-                <span class="read-more">اقرأ المزيد ←</span>
-            </div>
-            <div class="blog-card" onclick="openPost('post5')">
-                <h3>5. تنظيم أدوية المريض</h3>
-                <p>أهمية جدول المواعيد وتجنب الأخطاء الدوائية الشائعة...</p>
-                <span class="read-more">اقرأ المزيد ←</span>
-            </div>
-            <div class="blog-card" onclick="openPost('post6')">
-                <h3>6. مراقبة الضغط والنبض</h3>
-                <p>لماذا القياس الدوري هو مفتاح النجاة من الطوارئ المفاجئة...</p>
-                <span class="read-more">اقرأ المزيد ←</span>
-            </div>
+            <div class="blog-card" onclick="openPost('post1')" data-aos="flip-right"><h3>1. الوقاية من قرح الفراش</h3><p>تعرف على طرق التقليب الصحيحة وأهمية المرتبة الهوائية...</p><span style="color:var(--secondary); font-weight:bold;">التفاصيل ←</span></div>
+            <div class="blog-card" onclick="openPost('post2')" data-aos="flip-right"><h3>2. غسيل الكلى المنزلي</h3><p>كيف تجهز منزلك لجلسة غسيل كلوي آمنة ومعقمة...</p><span style="color:var(--secondary); font-weight:bold;">التفاصيل ←</span></div>
+            <div class="blog-card" onclick="openPost('post3')" data-aos="flip-right"><h3>3. التعامل مع مريض السكر</h3><p>الفرق بين غيبوبة الهبوط والارتفاع وكيفية التصرف...</p><span style="color:var(--secondary); font-weight:bold;">التفاصيل ←</span></div>
+            <div class="blog-card" onclick="openPost('post4')" data-aos="flip-right"><h3>4. العناية بالجروح الجراحية</h3><p>علامات التهاب الجروح وكيفية الغيار المعقم...</p><span style="color:var(--secondary); font-weight:bold;">التفاصيل ←</span></div>
+            <div class="blog-card" onclick="openPost('post5')" data-aos="flip-right"><h3>5. تنظيم أدوية المريض</h3><p>أهمية جدول المواعيد وتجنب الأخطاء الدوائية...</p><span style="color:var(--secondary); font-weight:bold;">التفاصيل ←</span></div>
+            <div class="blog-card" onclick="openPost('post6')" data-aos="flip-right"><h3>6. مراقبة الضغط والنبض</h3><p>لماذا القياس الدوري هو مفتاح النجاة من الطوارئ...</p><span style="color:var(--secondary); font-weight:bold;">التفاصيل ←</span></div>
         </div>
     </section>
 
     <div class="modal" id="postModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closePost()">&times;</span>
-            <h2 id="modalTitle" style="color:var(--primary); margin-bottom:20px;"></h2>
-            <div id="modalBody" style="line-height:2; font-size:1.1rem; text-align:justify;"></div>
+            <h2 id="modalTitle" style="color:var(--primary); margin-bottom:30px;"></h2>
+            <div id="modalBody" style="line-height:2.2; font-size:1.2rem;"></div>
         </div>
     </div>
 
     <footer id="contact">
         <div class="footer-grid">
-            <div>
-                <h3>أرقام الحجز</h3>
-                <p><i class="fas fa-phone"></i> 01274021912</p>
-                <p><i class="fas fa-phone"></i> 01283401996</p>
-                <p><i class="fas fa-phone"></i> 01124653800</p>
-            </div>
-            <div>
-                <h3>نطاق الخدمة</h3>
-                <p><i class="fas fa-truck-moving"></i> <strong>نصل إليك أينما كنت</strong></p>
-                <p><i class="fas fa-user-md"></i> رعاية احترافية تحت إشراف طبي</p>
-            </div>
-            <div>
-                <h3>تابعنا</h3>
-                <a href="https://www.facebook.com/share/1H5kF2ae1o/" target="_blank" style="color:white; font-size:3rem;"><i class="fab fa-facebook"></i></a>
-            </div>
+            <div><h3>أرقام الطوارئ</h3><p><i class="fas fa-phone"></i> 01274021912</p><p><i class="fas fa-phone"></i> 01283401996</p><p><i class="fas fa-phone"></i> 01124653800</p></div>
+            <div><h3>نطاق خدمتنا</h3><p><i class="fas fa-truck-moving"></i> <strong>نصل إليك أينما كنت</strong></p><p><i class="fas fa-user-md"></i> رعاية تحت إشراف طبي كامل</p></div>
+            <div><h3>تابعنا</h3><a href="https://www.facebook.com/share/1H5kF2ae1o/" target="_blank" style="color:white; font-size:3.5rem;"><i class="fab fa-facebook"></i></a></div>
         </div>
-        <hr style="opacity: 0.1; margin: 30px 0;">
-        <center><p>&copy; 2026 ميديكسيا للتمريض المنزلي. رعاية طبية تثق بها.</p></center>
+        <hr style="opacity: 0.1; margin: 40px 0;">
+        <center><p>&copy; 2026 ميديكسيا للتمريض المنزلي. رعاية طبية بلمسة إنسانية وعلمية.</p></center>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({ duration: 1000, once: true });
+
         const posts = {
-            post1: { title: "الوقاية من قرح الفراش", content: "قرح الفراش تنتج عن ضغط الجسم الطويل. للوقاية: 1. تقليب المريض كل ساعتين على الأقل. 2. استخدام المرتبة الهوائية الطبية لتقليل نقاط الضغط. 3. الحفاظ على جفاف ونظافة الجلد الدائم. 4. التغذية السليمة الغنية بالبروتين تساعد في بناء الأنسجة." },
-            post2: { title: "دليل غسيل الكلى المنزلي", content: "يتطلب الغسيل المنزلي بيئة هادئة ومعقمة: 1. تخصيص غرفة نظيفة وجيدة التهوية. 2. توفير إضاءة قوية لمكان تركيب الإبر. 3. مصدر كهرباء مستقر. 4. متابعة الوزن والضغط بدقة قبل وبعد الجلسة وتسجيلها في السجل الطبي للمريض." },
-            post3: { title: "التعامل مع مريض السكر في المنزل", content: "عند حدوث هبوط (رعشة وعرق وجوع شديد): قدم للمريض عسيراً أو ملعقة عسل فوراً إذا كان واعيًا. عند الارتفاع الشديد: يجب استشارة الطبيب لتعديل جرعة الأنسولين. القاعدة الذهبية: لا تضع شيئاً في فم مريض فاقد الوعي واتصل بنا فوراً." },
-            post4: { title: "العناية السليمة بالجروح الجراحية", content: "يجب الغيار على الجروح بأدوات معقمة. راقب العلامات التحذيرية: الاحمرار الشديد حول الجرح، وجود صديد أو رائحة كريهة، أو ارتفاع درجة حرارة المريض. لا تلمس الجرح بيد غير مغسولة وحافظ على الضمادة جافة وبعيدة عن الرطوبة." },
-            post5: { title: "تنظيم الأدوية وتجنب الأخطاء", content: "إدارة الأدوية المتعددة تتطلب دقة: 1. استخدم منظم الأدوية المقسم بالأيام. 2. احفظ الأدوية الحساسة كالأنسولين في الثلاجة. 3. لا تقم بخلط أو تغيير مواعيد الأدوية دون استشارة الطبيب. 4. احتفظ بقائمة محدثة بكل الأدوية بجانب سرير المريض." },
-            post6: { title: "أهمية مراقبة العلامات الحيوية", content: "القياس الدوري للضغط والسكر والنبض هو خط الدفاع الأول. يساعد هذا القياس في اكتشاف أي تدهور مفاجئ في الحالة الصحية قبل تفاقم المشكلة. ممرضونا يقومون بتسجيل هذه البيانات يومياً في تقرير طبي مفصل يُعرض على الطبيب المعالج في كل زيارة." }
+            post1: { title: "الوقاية من قرح الفراش", content: "تحدث قرح الفراش بسبب الضغط المستمر. <b>الوقاية:</b> 1. التقليب كل ساعتين. 2. استخدام مرتبة هوائية طبية. 3. الحفاظ على جفاف ونظافة الجلد الدائم. 4. التغذية السليمة." },
+            post2: { title: "دليل غسيل الكلى المنزلي", content: "يتطلب الغسيل المنزلي: 1. غرفة نظيفة ومعقمة. 2. إضاءة قوية. 3. مصدر كهرباء مستقر. 4. متابعة الوزن والضغط بدقة قبل وبعد الجلسة." },
+            post3: { title: "مريض السكر في المنزل", content: "عند حدوث هبوط: قدم عسيراً أو عسلاً فوراً. عند الارتفاع الشديد: استشر الطبيب لتعديل جرعة الأنسولين. لا تضع شيئاً في فم مريض فاقد الوعي." },
+            post4: { title: "العناية بالجروح الجراحية", content: "يجب الغيار بأدوات معقمة. راقب: الاحمرار الشديد، الصديد، أو الرائحة الكريهة. لا تلمس الجرح بيد غير معقمة. حافظ على الضمادة جافة." },
+            post5: { title: "تنظيم أدوية المريض", content: "استخدم منظم أدوية مقسم. احفظ الأنسولين في الثلاجة. لا تخلط الأدوية دون استشارة. التزم بالمواعيد الدقيقة لتجنب التفاعلات." },
+            post6: { title: "مراقبة العلامات الحيوية", content: "القياس الدوري للضغط والسكر والنبض يساعد في اكتشاف المشاكل قبل تفاقمها. ممرضونا يسجلون البيانات يومياً لمراجعتها مع الطبيب." }
         };
 
         function openPost(id) {
@@ -199,11 +179,8 @@
             document.getElementById('postModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
-        function closePost() { 
-            document.getElementById('postModal').style.display = 'none'; 
-            document.body.style.overflow = 'auto';
-        }
-        window.onclick = function(event) { if (event.target == document.getElementById('postModal')) closePost(); }
+        function closePost() { document.getElementById('postModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(e) { if (e.target == document.getElementById('postModal')) closePost(); }
     </script>
 </body>
 </html>
